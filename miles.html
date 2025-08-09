@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Kilometers to Miles Converter</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #6ae7ee;
+    text-align: center;
+    padding: 50px;
+  }
+  .converter {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    display: inline-block;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  input {
+    padding: 8px;
+    font-size: 16px;
+    width: 120px;
+    text-align: center;
+    margin-top: 10px;
+  }
+  p {
+    font-size: 18px;
+    margin-top: 15px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Kilometers ➡️ Miles Converter</h1>
+
+<div class="converter">
+  <label for="kmInput">Enter kilometers:</label><br>
+  <input type="number" id="kmInput" placeholder="km" oninput="convert()">
+  <p id="result">Miles: —</p>
+</div>
+
+<script>
+function kmToMiles(kilometers) {
+  return kilometers * 0.621371;
+}
+
+function convert() {
+  const km = parseFloat(document.getElementById("kmInput").value);
+  const result = document.getElementById("result");
+  
+  if (!isNaN(km)) {
+    result.textContent = `Miles: ${kmToMiles(km).toFixed(2)}`;
+  } else {
+    result.textContent = "Miles: —";
+  }
+}
+</script>
+
+</body>
+</html>
